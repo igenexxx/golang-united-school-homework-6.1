@@ -20,7 +20,7 @@ func NewBox(shapesCapacity int) *box {
 // AddShape adds shape to the box
 // returns the error in case it goes out of the shapesCapacity range.
 func (b *box) AddShape(shape Shape) error {
-	if len(b.shapes) > b.shapesCapacity {
+	if len(b.shapes) >= b.shapesCapacity {
 		return errors.New("out of capacity")
 	}
 
@@ -32,7 +32,7 @@ func (b *box) AddShape(shape Shape) error {
 // GetByIndex allows getting shape by index
 // whether shape by index doesn't exist or index went out of the range, then it returns an error
 func (b *box) GetByIndex(i int) (Shape, error) {
-	if i > len(b.shapes) || i < 0 {
+	if i >= len(b.shapes) || i < 0 {
 		return nil, errors.New("out of range")
 	}
 
