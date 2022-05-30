@@ -98,7 +98,7 @@ func (b *box) RemoveAllCircles() error {
 	var shapesWithoutCircles []Shape
 
 	for _, shape := range b.shapes {
-		_, ok := shape.(Circle)
+		_, ok := shape.(*Circle)
 
 		if !ok {
 			shapesWithoutCircles = append(shapesWithoutCircles, shape)
